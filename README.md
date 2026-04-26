@@ -4,9 +4,6 @@
 
 Built for the Deccan AI Hackathon 2026 .
 
-### 🔗 Important Link
-* **Live Web App:** [(https://catalyst-skill-assessment-agent.streamlit.app/)]
-
 
 ---
 
