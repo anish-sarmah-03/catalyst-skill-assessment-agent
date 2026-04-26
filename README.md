@@ -4,9 +4,9 @@
 
 Built for the Deccan AI Hackathon 2026 .
 
-### 🔗 Important Links
-* **Live Web App:** [Insert your Streamlit Share URL here]
-* **Demo Video (3-5 mins):** [Insert your YouTube/Drive Video Link here]
+### 🔗 Important Link
+* **Live Web App:** [(https://catalyst-skill-assessment-agent.streamlit.app/)]
+
 
 ---
 
@@ -41,3 +41,48 @@ Core Logic & State Management:
 The application's "brain" relies on strict structural enforcement and persistent state tracking. To prevent the LLM from returning unpredictable conversational text, the backend utilizes Pydantic schemas paired with the LLM's JSON response formatting. This forces the agents to output highly reliable, validated JSON objects (e.g., specific lists of missing skills, or integer scores and boolean pass/fail flags) that the Python backend can programmatically parse.
 
 To handle the conversational interview experience, the frontend leverages Streamlit's session_state. Because Streamlit reruns the entire script upon every user interaction, session_state is used as the application's short-term memory. It securely preserves the chat history, tracks the index of the current skill being tested, and aggregates the initial resume gaps alongside the skills failed during the interview, passing the complete list to the final agent to generate the learning plan.
+
+---
+ 
+## 🖥️ Running Locally
+ 
+### Prerequisites
+- Python 3.9 or higher
+- Google API key 
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/your-username/catalyst-skill-assessment-agent.git]
+cd catalyst-skill-assessment-agent
+```
+ 
+### 2. Create & Activate a Virtual Environment
+```bash
+# Create the environment
+python -m venv venv
+ 
+# Activate it
+# On macOS/Linux:
+source venv/bin/activate
+# On Windows:
+venv\Scripts\activate
+```
+ 
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+ 
+### 4. Set Up Your API Key
+Create a `.env` file in the root of the project and add your Google API key:
+```
+GOOGLE_API_KEY=your_api_key_here
+```
+> ⚠️ Never commit your `.env` file. Make sure it's listed in `.gitignore`.
+ 
+### 5. Run the App
+```bash
+streamlit run app.py
+```
+The app will open automatically in your browser at `http://localhost:8501`.
+ 
+---
