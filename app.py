@@ -11,7 +11,6 @@ from agents import (
 )
 import time
 
-# --- 1. Page Configuration & Theming ---
 st.set_page_config(
     page_title="Catalyst | Skill Agent", 
     page_icon="🚀", 
@@ -19,7 +18,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS to make it look less like default Streamlit and more like a SaaS app
 st.markdown("""
     <style>
     .stApp {
@@ -39,12 +37,12 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- Header Section ---
+
 st.markdown('<p class="main-header">Catalyst: AI Skill Assessment & Learning Plan Agent 🚀</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-text">Validate claims. Discover gaps. Build personalized learning paths.</p>', unsafe_allow_html=True)
 st.divider()
 
-# --- Session State Management ---
+#  Session State Management 
 if "phase" not in st.session_state:
     st.session_state.phase = "upload" 
 if "skills_to_test" not in st.session_state:
@@ -60,7 +58,7 @@ if "initial_gaps" not in st.session_state:
 if "current_question" not in st.session_state:
     st.session_state.current_question = ""
 
-# --- Sidebar Context ---
+
 with st.sidebar:
     st.header("⚙️ Dashboard")
     if st.session_state.phase == "upload":
@@ -73,12 +71,12 @@ with st.sidebar:
         st.success("Assessment complete! View the generated learning plan.")
 
 
-# --- Phase 1: Upload & Extraction ---
+# Phase 1: Upload & Extraction
 if st.session_state.phase == "upload":
     st.markdown("### 📄 Setup Candidate Assessment")
     
     with st.form("upload_form", border=True):
-        # UI UPGRADE: Using side-by-side columns
+        
         col1, col2 = st.columns(2)
         
         with col1:
@@ -118,16 +116,16 @@ if st.session_state.phase == "upload":
             st.session_state.phase = "assessment"
             st.rerun()
 
-# --- Phase 2: Assessment Loop ---
+# Phase 2: Assessment Loop 
 elif st.session_state.phase == "assessment":
     current_skill = st.session_state.skills_to_test[st.session_state.current_skill_index]
     
-    # UI UPGRADE: Better header and visual container
+  
     st.markdown(f"### 🎯 Active Test: `{current_skill.upper()}`")
     st.caption("Answer the scenario-based question below. The AI will evaluate your practical proficiency.")
     st.divider()
 
-    # Render chat history
+  
     for msg in st.session_state.chat_history:
         st.chat_message(msg["role"]).write(msg["content"])
 
@@ -151,7 +149,7 @@ elif st.session_state.phase == "assessment":
                 feedback_color = "green"
                 status_icon = "✅"
                 
-            # UI UPGRADE: Color-coded feedback
+           
             feedback_msg = f"{status_icon} **Score: {evaluation['score']}/5** \n\n {evaluation['feedback']}"
             st.session_state.chat_history.append({"role": "assistant", "content": feedback_msg})
             st.chat_message("assistant").write(feedback_msg)
@@ -172,7 +170,7 @@ elif st.session_state.phase == "assessment":
                 st.session_state.phase = "plan"
                 st.rerun()
 
-# --- Phase 3: Learning Plan Generation ---
+# Phase 3: Learning Plan Generation 
 elif st.session_state.phase == "plan":
     st.markdown("### 📚 Your Personalized Growth Plan")
     st.info("Based on your resume gaps and interview performance, we've curated this syllabus for you.")
@@ -183,7 +181,6 @@ elif st.session_state.phase == "plan":
             st.session_state.initial_gaps
         )
         
-        # UI UPGRADE: Wrap output in a styled container
         with st.container(border=True):
             st.markdown(final_plan)
         
