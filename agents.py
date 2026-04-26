@@ -2,7 +2,7 @@ import google.generativeai as genai                  #To commumicate with Gemini
 import os                                              #To securely read env variables
 from pydantic import BaseModel   #To let the AI know what format to return the answers
 from typing import List                  #To specify that certain fields will be Lists
-
+from google.api_core.exceptions import ResourceExhausted
 
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel('gemini-2.5-flash')    #This model has been chosen as it is fast, cost-effective, and  highly capable of structured tasks.
