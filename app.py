@@ -173,7 +173,7 @@ elif st.session_state.phase == "assessment":
 # Phase 3: Learning Plan Generation 
 elif st.session_state.phase == "plan":
     st.markdown("### 📚 Your Personalized Growth Plan")
-    st.info("Based on your resume gaps and interview performance, we've curated this syllabus for you.")
+    st.info("Based on your resume gaps,  and interview performance, we've curated this syllabus for you.")
     
     with st.spinner("Compiling resources and estimates..."):
         final_plan = generate_learning_plan(
