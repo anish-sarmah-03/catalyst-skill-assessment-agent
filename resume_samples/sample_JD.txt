@@ -1,0 +1,18 @@
+Selected Intern's Day-To-Day Responsibilities Include:
+
+Collaborate with cross-functional teams to design, develop, and deploy AI-powered solutions
+Experiment with RAG, LLM, and GenAI technologies to improve model performance and efficiency
+Work with Azure cloud services to deploy and manage AI models
+Develop and refine prompt engineering techniques to enhance AI output
+Stay up to date with the latest advancements in AI and contribute to internal knowledge sharing
+Skills Required:
+
+Amazon Web Services (AWS)
+Artificial Intelligence
+C++ Programming
+Google Cloud Platforms (GCP)
+Java
+Machine Learning
+Microsoft Azure
+Python
+TensorFlow
