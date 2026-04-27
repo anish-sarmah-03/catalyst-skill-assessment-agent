@@ -164,7 +164,7 @@ elif st.session_state.phase == "assessment":
                 st.session_state.chat_history.append({"role": "assistant", "content": next_question})
                 st.rerun()
             else:
-                st.balloons() # UI UPGRADE: Celebration animation
+                st.balloons()
                 st.success("🎉 Assessment Complete! Generating your learning plan...")
                 time.sleep(3)
                 st.session_state.phase = "plan"
