@@ -1,6 +1,5 @@
 streamlit
 langchain
-openai
 pymupdf
 python-dotenv
 google-generativeai
